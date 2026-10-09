@@ -1,0 +1,361 @@
+
+/* =====================================
+   STUDENTBUDGET — PREMIUM HEADER
+   LIGHT + DARK MODE
+===================================== */
+
+.dashboard-header {
+  position: sticky;
+  z-index: 50;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 90px;
+  padding: 18px 34px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition:
+    background-color var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.header-left,
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.header-left {
+  gap: 17px;
+  min-width: 0;
+}
+
+.header-actions {
+  gap: 19px;
+  flex-shrink: 0;
+}
+
+.header-menu-button {
+  display: none;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.header-page-info {
+  min-width: 0;
+}
+
+.header-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.header-breadcrumb svg {
+  color: var(--primary);
+}
+
+.header-breadcrumb-divider {
+  color: var(--text-muted);
+}
+
+.header-breadcrumb-current {
+  color: var(--primary);
+}
+
+.header-page-info h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.header-date {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--surface-secondary);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.header-date svg {
+  color: var(--primary);
+}
+
+.header-icon-button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition:
+    color 200ms ease,
+    background 200ms ease,
+    border-color 200ms ease;
+}
+
+.header-icon-button:hover {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.header-notification-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 4px;
+  border: 2px solid var(--surface);
+  border-radius: 999px;
+  background: #e11d48;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.header-profile {
+  position: relative;
+}
+
+.header-profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 4px 7px 4px 4px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+
+.header-profile-trigger:hover,
+.header-profile-trigger[aria-expanded="true"] {
+  background: var(--surface-hover);
+}
+
+.header-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #818cf8, #4f46e5);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.header-user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  max-width: 155px;
+  text-align: left;
+}
+
+.header-user-info strong {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-user-info small {
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.header-profile-trigger > svg {
+  color: var(--text-muted);
+  transition: transform 200ms ease;
+}
+
+.header-chevron-open {
+  transform: rotate(180deg);
+}
+
+/* PROFILE DROPDOWN */
+
+.header-dropdown {
+  position: absolute;
+  z-index: 100;
+  top: calc(100% + 13px);
+  right: 0;
+  width: 245px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  animation: header-dropdown-in 180ms ease both;
+}
+
+.header-dropdown-user {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 13px 12px 15px;
+}
+
+.header-dropdown-user strong {
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.header-dropdown-user span {
+  overflow-wrap: anywhere;
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.header-dropdown button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-secondary);
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.header-dropdown button:hover {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.header-dropdown-divider {
+  height: 1px;
+  margin: 7px 4px;
+  background: var(--border);
+}
+
+.header-dropdown .header-dropdown-logout {
+  color: var(--danger);
+}
+
+.header-dropdown .header-dropdown-logout:hover {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+@keyframes header-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+  .dashboard-header {
+    padding: 16px 24px;
+  }
+
+  .header-menu-button {
+    display: grid;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    min-height: 76px;
+    padding: 13px 18px;
+  }
+
+  .header-date,
+  .header-user-info,
+  .header-profile-trigger > svg {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 9px;
+  }
+
+  .header-page-info h1 {
+    font-size: 20px;
+  }
+
+  .header-avatar {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .dashboard-header {
+    padding-inline: 13px;
+  }
+
+  .header-left {
+    gap: 10px;
+  }
+
+  .header-breadcrumb {
+    font-size: 10px;
+  }
+
+  .header-page-info h1 {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-dropdown {
+    animation: none;
+  }
+}

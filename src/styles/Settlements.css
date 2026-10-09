@@ -1,0 +1,677 @@
+
+/* ==========================================
+   STUDENTBUDGET — BALANCES & SETTLEMENTS
+   LIGHT + DARK MODE
+========================================== */
+
+.settlements-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 30px;
+  color: var(--text-primary);
+}
+
+/* PAGE HEADER */
+
+.settlements-back {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.settlements-back:hover {
+  color: var(--primary-hover);
+}
+
+.settlements-heading,
+.settlements-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.settlements-eyebrow {
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.settlements-heading h2 {
+  margin: 10px 0;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 800;
+}
+
+.settlements-heading p,
+.settlements-panel-heading p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* BUTTONS */
+
+.settlements-primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 43px;
+  padding: 11px 17px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.settlements-primary-button:hover {
+  filter: brightness(1.05);
+}
+
+.settlements-primary-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.settlements-outline-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.settlements-outline-button:hover {
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+/* SUMMARY CARDS */
+
+.settlements-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.settlements-stat-card {
+  min-width: 0;
+  padding: 23px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.settlements-stat-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 19px;
+  border-radius: 13px;
+}
+
+.settlements-stat-icon.purple {
+  color: #4f46e5;
+  background: #eef2ff;
+}
+
+.settlements-stat-icon.green {
+  color: #059669;
+  background: #d1fae5;
+}
+
+.settlements-stat-icon.amber {
+  color: #d97706;
+  background: #fef3c7;
+}
+
+.settlements-stat-card p {
+  margin: 0 0 9px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.settlements-stat-card h3 {
+  margin: 0 0 8px;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2.4vw, 27px);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.settlements-stat-card > span {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+/* CONTENT PANELS */
+
+.settlements-panel {
+  min-width: 0;
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.settlements-panel-heading {
+  margin-bottom: 23px;
+}
+
+.settlements-panel-heading h3 {
+  margin: 0 0 7px;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+/* DEBT LIST */
+
+.settlements-debt-list,
+.settlements-history-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.settlements-debt-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.settlements-debt-item:last-child,
+.settlements-history-item:last-child {
+  border-bottom: none;
+}
+
+.settlements-debt-people {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 17px;
+}
+
+.settlements-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.settlements-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.settlements-avatar.receiver {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.settlements-person > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.settlements-person strong {
+  color: var(--text-primary);
+  font-size: 12px;
+}
+
+.settlements-person span {
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.settlements-debt-arrow {
+  color: var(--primary);
+}
+
+.settlements-debt-actions {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.settlements-debt-actions > strong {
+  color: var(--text-primary);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.settlements-small-button {
+  min-height: 36px;
+  padding: 8px 12px;
+  font-size: 11px;
+}
+
+/* SETTLEMENT HISTORY */
+
+.settlements-history-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.settlements-history-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.settlements-history-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  border-radius: 12px;
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.settlements-history-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.settlements-history-main h4 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 0 0 8px;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.settlements-history-main > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.settlements-history-main p {
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.settlements-history-amount {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--success);
+  font-size: 15px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.settlements-history-amount svg {
+  display: none;
+}
+
+/* EMPTY STATES */
+
+.settlements-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 210px;
+  padding: 30px 15px;
+  color: var(--primary);
+  text-align: center;
+}
+
+.settlements-empty-icon {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  margin-bottom: 15px;
+  border-radius: 18px;
+  background: var(--primary-soft);
+}
+
+.settlements-empty h4 {
+  margin: 0 0 8px;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.settlements-empty p {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* ALERTS */
+
+.settlements-alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 17px;
+  border: 1px solid;
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.settlements-alert span {
+  flex: 1;
+}
+
+.settlements-alert button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.settlements-alert-error {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.settlements-alert-success {
+  border-color: var(--success);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+/* SETTLEMENT MODAL */
+
+.settlements-modal-backdrop {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(10, 20, 45, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+.settlements-modal {
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.settlements-modal-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.settlements-modal-heading h3 {
+  margin: 9px 0;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.settlements-modal-heading p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.settlements-modal-close {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: var(--surface-hover);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.settlements-modal-close:hover {
+  color: var(--text-primary);
+}
+
+/* FORM */
+
+.settlements-form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.settlements-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.settlements-form label > span {
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.settlements-form input,
+.settlements-form select,
+.settlements-form textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 11px;
+  outline: none;
+  background: var(--surface-secondary);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 13px;
+}
+
+.settlements-form textarea {
+  resize: vertical;
+}
+
+.settlements-form input:focus,
+.settlements-form select:focus,
+.settlements-form textarea:focus {
+  border-color: var(--primary);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.settlements-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+/* DEBT PREVIEW */
+
+.settlements-debt-preview {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid var(--primary);
+  border-radius: 11px;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.settlements-debt-preview strong {
+  color: var(--text-primary);
+  font-size: 12px;
+}
+
+.settlements-debt-preview p {
+  margin: 6px 0 0;
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+/* MODAL FOOTER */
+
+.settlements-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.settlements-cancel-button {
+  padding: 12px 20px;
+  border: 1px solid var(--border-strong);
+  border-radius: 11px;
+  background: var(--surface);
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.settlements-cancel-button:hover {
+  background: var(--surface-hover);
+}
+
+/* LOADING ANIMATION */
+
+.settlements-spin {
+  animation: settlements-rotation 1s linear infinite;
+}
+
+@keyframes settlements-rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* DARK MODE ICON ACCENTS */
+
+:root[data-sb-theme="dark"] .settlements-stat-icon.purple {
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+:root[data-sb-theme="dark"] .settlements-stat-icon.green {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+:root[data-sb-theme="dark"] .settlements-stat-icon.amber {
+  color: var(--warning);
+  background: var(--warning-soft);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1050px) {
+  .settlements-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .settlements-heading,
+  .settlements-panel-heading {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .settlements-stats,
+  .settlements-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .settlements-debt-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .settlements-debt-actions {
+    align-items: flex-start;
+  }
+
+  .settlements-panel {
+    padding: 18px 14px;
+  }
+
+  .settlements-modal {
+    padding: 21px;
+  }
+
+  .settlements-history-item {
+    flex-wrap: wrap;
+  }
+
+  .settlements-history-amount {
+    margin-left: 58px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .settlements-spin {
+    animation: none;
+  }
+}

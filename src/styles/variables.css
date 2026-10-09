@@ -1,0 +1,192 @@
+
+/* =========================================
+   STUDENTBUDGET DESIGN SYSTEM
+   Light + Dark Theme Variables
+   ========================================= */
+
+:root {
+  color-scheme: light;
+
+  /* Premium brand palette */
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-soft: #eef2ff;
+  --primary-glow: rgba(79, 70, 229, 0.18);
+
+  /* Sidebar palette */
+  --navy-950: #080f24;
+  --navy-900: #101a35;
+  --navy-800: #1c2b4d;
+
+  /* Page surfaces */
+  --background: #f6f8fc;
+  --surface: #ffffff;
+  --surface-secondary: #f9faff;
+  --surface-hover: #f1f5ff;
+
+  /* Typography */
+  --text-primary: #17213a;
+  --text-secondary: #66748c;
+  --text-muted: #98a3b6;
+  --text-inverse: #ffffff;
+
+  --font-body: "DM Sans", sans-serif;
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+
+  /* Borders */
+  --border: #e8edf5;
+  --border-strong: #d7e0ed;
+
+  /* Semantic colors */
+  --success: #059669;
+  --success-soft: #ecfdf5;
+  --danger: #e11d48;
+  --danger-soft: #fff1f2;
+  --warning: #d97706;
+  --warning-soft: #fffbeb;
+  --info: #0284c7;
+  --info-soft: #eff6ff;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    #6366f1 0%,
+    #4f46e5 55%,
+    #4338ca 100%
+  );
+
+  --gradient-dark: linear-gradient(
+    145deg,
+    #080f24 0%,
+    #15244c 58%,
+    #283c82 100%
+  );
+
+  --gradient-page: linear-gradient(
+    135deg,
+    #f8faff 0%,
+    #f1f5ff 100%
+  );
+
+  /* Rounded corners */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-xs: 0 2px 6px rgba(15, 23, 42, 0.03);
+
+  --shadow-sm:
+    0 4px 12px rgba(15, 23, 42, 0.04),
+    0 1px 3px rgba(15, 23, 42, 0.02);
+
+  --shadow-md:
+    0 12px 32px rgba(15, 23, 42, 0.07),
+    0 2px 8px rgba(15, 23, 42, 0.03);
+
+  --shadow-lg:
+    0 24px 60px rgba(15, 23, 42, 0.12);
+
+  --shadow-primary:
+    0 10px 28px rgba(79, 70, 229, 0.22);
+
+  /* Layout */
+  --sidebar-width: 264px;
+  --header-height: 76px;
+  --content-max-width: 1440px;
+
+  /* Animation */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* =========================================
+   DARK MODE
+   Activated by Settings.jsx
+   ========================================= */
+
+:root[data-sb-theme="dark"] {
+  color-scheme: dark;
+
+  /* Brand */
+  --primary: #818cf8;
+  --primary-hover: #a5b4fc;
+  --primary-soft: #292b53;
+  --primary-glow: rgba(129, 140, 248, 0.22);
+
+  /* Sidebar remains dark */
+  --navy-950: #070d1d;
+  --navy-900: #0d1630;
+  --navy-800: #19284b;
+
+  /* Dark surfaces */
+  --background: #0b1220;
+  --surface: #172033;
+  --surface-secondary: #1c2940;
+  --surface-hover: #25334d;
+
+  /* Typography */
+  --text-primary: #f1f5f9;
+  --text-secondary: #b4c0d3;
+  --text-muted: #8fa0b8;
+  --text-inverse: #ffffff;
+
+  /* Borders */
+  --border: #2c3a52;
+  --border-strong: #41516c;
+
+  /* Semantic colors */
+  --success: #34d399;
+  --success-soft: #103c32;
+
+  --danger: #fb7185;
+  --danger-soft: #451c2b;
+
+  --warning: #fbbf24;
+  --warning-soft: #45351a;
+
+  --info: #38bdf8;
+  --info-soft: #153b55;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    #818cf8 0%,
+    #6366f1 55%,
+    #4f46e5 100%
+  );
+
+  --gradient-dark: linear-gradient(
+    145deg,
+    #070d1d 0%,
+    #101c39 58%,
+    #23356d 100%
+  );
+
+  --gradient-page: linear-gradient(
+    135deg,
+    #0b1220 0%,
+    #121d32 100%
+  );
+
+  /* Elevation */
+  --shadow-xs: 0 2px 6px rgba(0, 0, 0, 0.12);
+
+  --shadow-sm:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+
+  --shadow-md:
+    0 12px 32px rgba(0, 0, 0, 0.22),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+
+  --shadow-lg:
+    0 24px 60px rgba(0, 0, 0, 0.32);
+
+  --shadow-primary:
+    0 10px 28px rgba(99, 102, 241, 0.24);
+}

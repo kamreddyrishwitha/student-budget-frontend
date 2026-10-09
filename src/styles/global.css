@@ -1,0 +1,208 @@
+
+/* =========================================
+   STUDENTBUDGET GLOBAL STYLES
+   Light + Dark Mode Support
+   ========================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+@import "./variables.css";
+@import "./utilities.css";
+
+/* =========================================
+   GLOBAL RESET
+   ========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+img {
+  display: block;
+}
+
+input,
+textarea,
+select {
+  color: inherit;
+}
+
+::selection {
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary-glow);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   GLOBAL DARK THEME
+   ========================================= */
+
+:root[data-sb-theme="dark"] {
+  background: var(--background);
+  color: var(--text-primary);
+}
+
+/* Default browser controls */
+:root[data-sb-theme="dark"] input,
+:root[data-sb-theme="dark"] textarea,
+:root[data-sb-theme="dark"] select {
+  color-scheme: dark;
+}
+
+/* Shared semantic elements */
+:root[data-sb-theme="dark"] hr {
+  border-color: var(--border);
+}
+
+:root[data-sb-theme="dark"] ::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+/* =========================================
+   APP-WIDE DARK THEME COMPATIBILITY
+
+   Existing module CSS contains some fixed
+   light colors. These rules provide a
+   temporary dark-mode bridge while we
+   migrate individual modules to variables.
+   ========================================= */
+
+:root[data-sb-theme="dark"] .dashboard-layout,
+:root[data-sb-theme="dark"] .dashboard-main,
+:root[data-sb-theme="dark"] .dashboard-content {
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+/* Common card surfaces */
+:root[data-sb-theme="dark"] .dashboard-page article,
+:root[data-sb-theme="dark"] .income-page article,
+:root[data-sb-theme="dark"] .expenses-page article,
+:root[data-sb-theme="dark"] .categories-page article,
+:root[data-sb-theme="dark"] .budgets-page article,
+:root[data-sb-theme="dark"] .groups-page article,
+:root[data-sb-theme="dark"] .transactions-page article,
+:root[data-sb-theme="dark"] .analytics-page article,
+:root[data-sb-theme="dark"] .notifications-page article,
+:root[data-sb-theme="dark"] .profile-page article {
+  border-color: var(--border);
+}
+
+/* Generic form controls in app pages */
+:root[data-sb-theme="dark"] .dashboard-content input:not([type="checkbox"]):not([type="radio"]),
+:root[data-sb-theme="dark"] .dashboard-content textarea,
+:root[data-sb-theme="dark"] .dashboard-content select {
+  border-color: var(--border-strong);
+  background-color: var(--surface-secondary);
+  color: var(--text-primary);
+}
+
+:root[data-sb-theme="dark"] .dashboard-content input::placeholder,
+:root[data-sb-theme="dark"] .dashboard-content textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Common native browser dropdown behavior */
+:root[data-sb-theme="dark"] option {
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+
+:root[data-sb-theme="dark"] {
+  scrollbar-color: #41516c #0b1220;
+}
+
+:root[data-sb-theme="dark"] ::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+:root[data-sb-theme="dark"] ::-webkit-scrollbar-track {
+  background: #0b1220;
+}
+
+:root[data-sb-theme="dark"] ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #41516c;
+}
+
+:root[data-sb-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

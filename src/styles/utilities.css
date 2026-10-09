@@ -1,0 +1,272 @@
+
+/* ==========================================
+   STUDENTBUDGET — SHARED UTILITIES
+   LIGHT + DARK MODE
+========================================== */
+
+/* CONTAINER */
+
+.container {
+  width: min(100% - 48px, var(--content-max-width));
+  margin-inline: auto;
+}
+
+/* TYPOGRAPHY */
+
+.page-title {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 800;
+  letter-spacing: -1.1px;
+  line-height: 1.25;
+}
+
+.page-subtitle {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.text-muted {
+  color: var(--text-secondary);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+/* SHARED CARD */
+
+.surface-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* PRIMARY BUTTON */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 11px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  background: var(--gradient-primary);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-primary);
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal),
+    opacity var(--transition-normal);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* SECONDARY BUTTON */
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 11px 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--primary);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* STATUS BADGES */
+
+.status-success {
+  color: var(--success);
+  background: var(--success-soft);
+}
+
+.status-danger {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.status-warning {
+  color: var(--warning);
+  background: var(--warning-soft);
+}
+
+/* APPLICATION LOADING SCREEN */
+
+.app-loading-screen {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: var(--background);
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.app-loading-spinner {
+  width: 38px;
+  height: 38px;
+  border: 3px solid var(--primary-soft);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: app-spin 800ms linear infinite;
+}
+
+@keyframes app-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* DASHBOARD WELCOME PLACEHOLDER */
+
+.dashboard-welcome-placeholder {
+  padding: clamp(28px, 4vw, 48px);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard-welcome-eyebrow {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.dashboard-welcome-placeholder h2 {
+  margin-top: 16px;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: clamp(25px, 3vw, 36px);
+  letter-spacing: -1px;
+}
+
+.dashboard-welcome-placeholder p {
+  max-width: 600px;
+  margin-top: 14px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.dashboard-welcome-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 26px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--success-soft);
+  color: var(--success);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dashboard-welcome-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+}
+
+/* DARK MODE */
+
+:root[data-sb-theme="dark"] .app-loading-screen {
+  background: var(--background);
+  color: var(--text-secondary);
+}
+
+:root[data-sb-theme="dark"] .dashboard-welcome-placeholder {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+:root[data-sb-theme="dark"] .btn-secondary {
+  background: var(--surface);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+/* COMPACT LAYOUT */
+
+:root[data-sb-compact="true"] .surface-card {
+  padding: 16px;
+}
+
+:root[data-sb-compact="true"] .dashboard-welcome-placeholder {
+  padding: 20px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 28px, var(--content-max-width));
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .app-loading-spinner {
+    animation: none;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    transition: none;
+  }
+}
