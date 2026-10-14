@@ -2,7 +2,9 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL:
+    import.meta.env.VITE_API_URL ||
+    "https://student-budget-backend-9nxt.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
